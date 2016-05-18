@@ -1428,6 +1428,9 @@ message BidResponse {
   // Reason for not bidding.
   optional NoBidReason nbr = 6;
 
+  // Needed for Rubicon statuscode
+  optional int32 statuscode = 7;
+
   // Extensions.
   extensions 100 to 9999;
 

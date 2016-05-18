@@ -1322,6 +1322,9 @@ public class OpenRtbJsonReader extends AbstractOpenRtbJsonReader {
           }
         }
         break;
+      case "statuscode":
+        resp.setStatuscode(par.getIntValue());
+        break;
       default:
         readOther(resp, par, fieldName);
     }
