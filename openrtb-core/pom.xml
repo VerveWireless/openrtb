@@ -149,6 +149,7 @@
                     </path>
                     <pathconvert pathsep=" " property="proto.files" refid="proto.path" />
                     <exec executable="protoc" failonerror="true">
+                      <arg value="--version" />
                       <arg value="--java_out=${protobufGenerated}" />
                       <arg value="-I${protobufSource}" />
                       <arg line="${proto.files}" />
