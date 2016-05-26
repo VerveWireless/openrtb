@@ -148,8 +148,7 @@
                       </fileset>
                     </path>
                     <pathconvert pathsep=" " property="proto.files" refid="proto.path" />
-                    <exec executable="protoc" failonerror="true">
-                      <arg value="--version" />
+                    <exec executable="${protobuf.compiler}" failonerror="true">
                       <arg value="--java_out=${protobufGenerated}" />
                       <arg value="-I${protobufSource}" />
                       <arg line="${proto.files}" />
@@ -172,7 +171,7 @@
                       </fileset>
                     </path>
                     <pathconvert pathsep=" " property="proto.files" refid="proto.path" />
-                    <exec executable="protoc" failonerror="true">
+                    <exec executable="${protobuf.compiler}" failonerror="true">
                       <arg value="--java_out=${testProtobufGenerated}" />
                       <arg value="-I${protobufSource}" />
                       <arg value="-I${testProtobufSource}" />

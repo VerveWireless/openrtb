@@ -50,6 +50,7 @@
   </prerequisites>
 
   <properties>
+    <protobuf.compiler>protoc</protobuf.compiler>
     <findBugsJsr305Version>3.0.1</findBugsJsr305Version>
     <gpg.skip>true</gpg.skip>
     <guavaVersion>19.0</guavaVersion>
