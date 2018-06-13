@@ -42,7 +42,7 @@ message BidRequest {
   // Unique ID of the bid request, provided by the exchange.
   // REQUIRED by the OpenRTB specification.
   // [AdX: BidRequest.id - AdX is binary, OpenRTB is base64 (no padding)]
-  required string id = 1;
+  optional string id = 1;
 
   // Array of Imp objects (Section 3.2.2) representing the impressions offered.
   // At least 1 Imp object is required.
@@ -145,7 +145,7 @@ message BidRequest {
     // request (typically, value starts with 1, and increments up to n
     // for n impressions).
     // [AdX: BidRequest.AdSlot.id]
-    required string id = 1;
+    optional string id = 1;
 
     // A Banner object (Section 3.2.3); required if this impression is
     // offered as a banner ad opportunity.

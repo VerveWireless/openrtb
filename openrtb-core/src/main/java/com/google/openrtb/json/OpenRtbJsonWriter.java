@@ -110,7 +110,9 @@ public class OpenRtbJsonWriter extends AbstractOpenRtbJsonWriter {
   }
 
   protected void writeBidRequestFields(BidRequest req, JsonGenerator gen) throws IOException {
-    gen.writeStringField("id", req.getId());
+    if (req.hasId()) {
+        gen.writeStringField("id", req.getId());
+    }
     if (checkRequired(req.getImpCount())) {
       gen.writeArrayFieldStart("imp");
       for (Imp imp : req.getImpList()) {
@@ -168,7 +170,9 @@ public class OpenRtbJsonWriter extends AbstractOpenRtbJsonWriter {
   }
 
   protected void writeImpFields(Imp imp, JsonGenerator gen) throws IOException {
-    gen.writeStringField("id", imp.getId());
+    if (imp.hasId()) {
+      gen.writeStringField("id", imp.getId());
+    }
     if (imp.hasBanner()) {
       gen.writeFieldName("banner");
       writeBanner(imp.getBanner(), gen);
