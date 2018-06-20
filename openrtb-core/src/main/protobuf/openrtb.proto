@@ -1152,6 +1152,9 @@ message BidRequest {
     // RECOMMENDED by the OpenRTB specification.
     optional bool lmt = 23;
 
+    // Needed for InMobi google ids 
+    optional string gpid = 50;
+
     // Extensions.
     extensions 100 to 9999;
 
