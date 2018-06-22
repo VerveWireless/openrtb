@@ -711,6 +711,10 @@ public class OpenRtbJsonWriter extends AbstractOpenRtbJsonWriter {
     if (device.hasMacmd5()) {
       gen.writeStringField("macmd5", device.getMacmd5());
     }
+    if (device.hasGpid()) {
+      gen.writeStringField("gpid", device.getGpid());
+    }
+
   }
 
   public final void writeGeo(Geo geo, JsonGenerator gen) throws IOException {
