@@ -27,7 +27,7 @@ package com.google.openrtb;
 message BidRequest {
   // Unique ID of the bid request, provided by the exchange.
   // REQUIRED by the OpenRTB specification.
-  required string id = 1;
+  optional string id = 1;
 
   // Array of Imp objects (Section 3.2.2) representing the impressions offered.
   // At least 1 Imp object is required.
@@ -162,7 +162,7 @@ message BidRequest {
     // A unique identifier for this impression within the context of the bid
     // request (typically, value starts with 1, and increments up to n
     // for n impressions).
-    required string id = 1;
+    optional string id = 1;
 
     // A Banner object (Section 3.2.3); required if this impression is
     // offered as a banner ad opportunity.
@@ -1088,6 +1088,8 @@ message BidRequest {
     // and MNC parts is required to remove parsing ambiguity.
     optional string mccmnc = 30;
 
+    // lame for inmobi
+    optional string gpid = 99;
     // Extensions.
     extensions 100 to 9999;
   }
@@ -1287,6 +1289,9 @@ message BidResponse {
 
   // Reason for not bidding.
   optional NoBidReason nbr = 6;
+
+  // lame rubicon addition
+  optional int32 statuscode = 99;
 
   // Extensions.
   extensions 100 to 9999;
