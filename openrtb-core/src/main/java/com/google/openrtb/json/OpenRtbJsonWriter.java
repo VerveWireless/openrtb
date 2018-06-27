@@ -16,10 +16,13 @@
 
 package com.google.openrtb.json;
 
-import static com.google.openrtb.json.OpenRtbJsonUtils.writeEnums;
-import static com.google.openrtb.json.OpenRtbJsonUtils.writeIntBoolField;
-import static com.google.openrtb.json.OpenRtbJsonUtils.writeStrings;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.StringWriter;
+import java.io.Writer;
 
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.google.openrtb.OpenRtb.BidRequest;
 import com.google.openrtb.OpenRtb.BidRequest.App;
 import com.google.openrtb.OpenRtb.BidRequest.Content;
@@ -38,19 +41,14 @@ import com.google.openrtb.OpenRtb.BidRequest.Producer;
 import com.google.openrtb.OpenRtb.BidRequest.Publisher;
 import com.google.openrtb.OpenRtb.BidRequest.Regs;
 import com.google.openrtb.OpenRtb.BidRequest.Site;
+import com.google.openrtb.OpenRtb.BidRequest.Source;
 import com.google.openrtb.OpenRtb.BidRequest.User;
 import com.google.openrtb.OpenRtb.BidResponse;
 import com.google.openrtb.OpenRtb.BidResponse.SeatBid;
 import com.google.openrtb.OpenRtb.BidResponse.SeatBid.Bid;
 import com.google.openrtb.util.OpenRtbUtils;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
-
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.StringWriter;
-import java.io.Writer;
+import static com.google.openrtb.json.OpenRtbJsonUtils.*;
 
 /**
  * Serializes OpenRTB {@link BidRequest}/{@link BidResponse} messages to JSON.
@@ -135,6 +133,10 @@ public class OpenRtbJsonWriter extends AbstractOpenRtbJsonWriter {
     if (req.hasDevice()) {
       gen.writeFieldName("device");
       writeDevice(req.getDevice(), gen);
+    }
+    if (req.hasSource()) {
+      gen.writeFieldName("source");
+      writeSource(req.getSource(), gen);
     }
     if (req.hasUser()) {
       gen.writeFieldName("user");
@@ -757,6 +759,19 @@ public class OpenRtbJsonWriter extends AbstractOpenRtbJsonWriter {
     }
   }
 
+  // HACK putting this here until we upgrade the library
+
+  public final void writeSource(Source source, JsonGenerator gen) throws IOException {
+    gen.writeStartObject();
+    writeSourceFields(source, gen);
+    gen.writeEndObject();
+  }
+
+  protected void writeSourceFields(Source source, JsonGenerator gen) throws IOException {
+    if (source.hasPchain()) {
+      gen.writeStringField("pchain", source.getPchain());
+    }
+  }
   public final void writeUser(User user, JsonGenerator gen) throws IOException {
     gen.writeStartObject();
     writeUserFields(user, gen);

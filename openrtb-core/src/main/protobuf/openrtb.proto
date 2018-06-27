@@ -116,6 +116,9 @@ message BidRequest {
   // [AdX: BidRequest.is_test]
   optional bool test = 15 [default = false];
 
+  // hack until we can upgrade our openrtb library
+  optional Source source= 99;
+
   // Extensions.
   extensions 100 to 9999;
 
@@ -127,6 +130,12 @@ message BidRequest {
 
     // [AdX: DealType.PREFERRED_DEAL]
     FIXED_PRICE = 3;
+  }
+
+  // HACK until we can upgrade the openrtb library
+
+  message Source {
+    optional string pchain = 1;
   }
 
   // OpenRTB 3.2.2: This object describes an ad placement or impression
