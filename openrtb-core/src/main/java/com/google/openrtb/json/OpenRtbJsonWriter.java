@@ -876,6 +876,9 @@ public class OpenRtbJsonWriter extends AbstractOpenRtbJsonWriter {
     if (device.hasIfa()) {
       gen.writeStringField("ifa", device.getIfa());
     }
+    if (device.hasGpid()) {
+      gen.writeStringField("gpid", device.getGpid());
+    }
     if (device.hasDidsha1()) {
       gen.writeStringField("didsha1", device.getDidsha1());
     }
