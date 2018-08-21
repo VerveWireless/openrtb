@@ -34,11 +34,33 @@
     <url>https://github.com/google/openrtb/issues</url>
   </issueManagement>
 
+  <repositories>
+    <repository>
+      <id>staging</id>
+      <name>Verve Staging Nexus Repository</name>
+      <url>http://nexus-master-2014911069.us-west-2.elb.amazonaws.com/nexus/content/repositories/staging</url>
+    </repository>
+    <repository>
+       <id>snapshots</id>
+       <name>Verve Snapshots Nexus Repository</name>
+       <url>http://nexus-master-2014911069.us-west-2.elb.amazonaws.com/nexus/content/repositories/snapshots</url>
+       <snapshots>
+         <enabled>true</enabled>
+       </snapshots>
+     </repository>
+  </repositories>
+
   <distributionManagement>
     <repository>
-      <id>sonatype-nexus-staging</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <id>staging</id>
+      <name>Verve Staging Nexus Repository</name>
+      <url>http://10.61.1.182:8081/nexus/content/repositories/staging</url>
     </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>Verve Snapshots Nexus Repository</name>
+      <url>http://10.61.1.182:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <modules>
