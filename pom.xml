@@ -88,6 +88,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <!-- Protobuf properties -->
+    <protobuf.compiler>protoc</protobuf.compiler>
     <generatedSources>${project.basedir}/target/generated-sources</generatedSources>
     <protobufSource>${project.basedir}/src/main/protobuf</protobufSource>
     <protobufGenerated>${generatedSources}/protobuf</protobufGenerated>
