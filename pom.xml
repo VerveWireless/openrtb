@@ -57,16 +57,16 @@
   </repositories>
 
   <distributionManagement>
-    <repository>
-      <id>staging</id>
-      <name>Verve Staging Nexus Repository</name>
-      <url>http://10.61.1.182:8081/nexus/content/repositories/staging</url>
-    </repository>
-    <snapshotRepository>
-      <id>snapshots</id>
-      <name>Verve Snapshots Nexus Repository</name>
-      <url>http://10.61.1.182:8081/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
+                <repository>
+                        <id>staging</id>
+                        <name>Verve GCP Staging Nexus Repository</name>
+                        <url>http://172.24.31.221:8081/repository/staging</url>
+                </repository>
+                <snapshotRepository>
+                        <id>snapshots</id>
+                        <name>Verve Snapshots Nexus Repository</name>
+                        <url>http://172.24.31.221:8081/repository/maven-snapshots</url>
+                </snapshotRepository>
   </distributionManagement>
 
   <modules>
