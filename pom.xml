@@ -35,19 +35,25 @@
   </issueManagement>
 
   <repositories>
-    <repository>
-      <id>staging</id>
-      <name>Verve Staging Nexus Repository</name>
-      <url>http://nexus-master-2014911069.us-west-2.elb.amazonaws.com/nexus/content/repositories/staging</url>
-    </repository>
-    <repository>
-       <id>snapshots</id>
-       <name>Verve Snapshots Nexus Repository</name>
-       <url>http://nexus-master-2014911069.us-west-2.elb.amazonaws.com/nexus/content/repositories/snapshots</url>
-       <snapshots>
-         <enabled>true</enabled>
-       </snapshots>
-     </repository>
+                <repository>
+                        <id>AWS-staging</id>
+                        <name>Verve AWS Staging Nexus Repository</name>
+                        <url>http://nexus-master-2014911069.us-west-2.elb.amazonaws.com/nexus/content/repositories/staging</url>
+                </repository>
+                <repository>
+                        <id>staging</id>
+                        <name>Verve GCP Staging Nexus Repository</name>
+                        <url>http://172.24.31.221:8081/repository/staging</url>
+                </repository>
+                <repository>
+                        <id>snapshots</id>
+                        <name>Verve Snapshots Nexus Repository</name>
+                        <url>http://172.24.31.221:8081/repository/maven-snapshots</url>
+                <snapshots>
+                        <enabled>true</enabled>
+                </snapshots>
+        </repository>
+	  
   </repositories>
 
   <distributionManagement>
